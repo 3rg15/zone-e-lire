@@ -1,0 +1,295 @@
+/* =========================
+   POLL CARD
+========================= */
+
+.poll-card {
+  position: relative;
+
+  width: 320px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,15,15,0.95),
+      rgba(10,10,10,0.92)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.35s ease;
+
+  backdrop-filter: blur(16px);
+}
+
+.poll-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+/* =========================
+   CYAN / MAGENTA THEMES
+========================= */
+
+.poll-card-cyan:hover {
+  border-color: #00ffff;
+
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.18),
+    0 0 60px rgba(0,255,255,0.08);
+}
+
+.poll-card-magenta:hover {
+  border-color: #ff00ff;
+
+  box-shadow:
+    0 0 25px rgba(255,0,255,0.18),
+    0 0 60px rgba(255,0,255,0.08);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.poll-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.poll-image {
+  width: 100%;
+  height: 420px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: 0.45s ease;
+}
+
+.poll-card:hover .poll-image {
+  transform: scale(1.06);
+}
+
+.poll-image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.95),
+      rgba(0,0,0,0.15),
+      transparent
+    );
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.poll-top-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.45);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: #00ffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(10px);
+}
+
+.poll-floating-score {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 10px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.55);
+
+  color: white;
+
+  font-weight: 700;
+  font-size: 13px;
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.poll-content {
+  padding: 22px;
+}
+
+.poll-role {
+  color: #00ffff;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.poll-name {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+
+  color: white;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.poll-progress-wrapper {
+  margin-bottom: 20px;
+}
+
+.poll-progress-bar {
+  width: 100%;
+  height: 10px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+}
+
+.poll-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00ffff,
+      #ff00ff
+    );
+
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.4);
+
+  transition: width 0.4s ease;
+}
+
+.poll-stats {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  font-size: 13px;
+  color: #bdbdbd;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.poll-vote-btn {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 14px 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00ffff,
+      #00d9ff
+    );
+
+  color: black;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.25);
+}
+
+.poll-vote-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.45),
+    0 0 50px rgba(0,255,255,0.15);
+}
+
+.poll-vote-btn:disabled {
+  cursor: default;
+}
+
+.poll-voted {
+  background:
+    linear-gradient(
+      90deg,
+      #ff00ff,
+      #ff4dff
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 20px rgba(255,0,255,0.25);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .poll-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .poll-image {
+    height: 360px;
+  }
+
+  .poll-name {
+    font-size: 1.3rem;
+  }
+}

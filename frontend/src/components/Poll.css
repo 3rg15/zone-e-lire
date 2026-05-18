@@ -1,0 +1,317 @@
+/* =========================
+   POLL CONTAINER
+========================= */
+
+.poll-container {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 32px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,15,15,0.95),
+      rgba(8,8,8,0.92)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 0 30px rgba(0,255,255,0.06);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.poll-header {
+  margin-bottom: 32px;
+}
+
+.poll-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 16px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(0,255,255,0.08);
+
+  border: 1px solid rgba(0,255,255,0.2);
+
+  color: #00ffff;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.poll-question {
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.15;
+
+  margin-bottom: 14px;
+
+  color: white;
+
+  text-shadow:
+    0 0 20px rgba(0,255,255,0.12);
+}
+
+.poll-total-votes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #bcbcbc;
+
+  font-size: 14px;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* OPTION CARD */
+
+.poll-option {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.3s ease;
+}
+
+.poll-option:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0,255,255,0.3);
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.08);
+}
+
+.poll-option-selected {
+  border-color: #ff00ff;
+
+  box-shadow:
+    0 0 20px rgba(255,0,255,0.15);
+}
+
+/* =========================
+   OPTION TOP
+========================= */
+
+.poll-option-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+
+  margin-bottom: 16px;
+}
+
+.poll-option-top h3 {
+  margin: 0 0 6px;
+
+  color: white;
+
+  font-size: 1.2rem;
+}
+
+.poll-option-top span {
+  color: #bdbdbd;
+  font-size: 14px;
+}
+
+.poll-percent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #00ffff;
+
+  font-weight: 700;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  margin-bottom: 18px;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00ffff,
+      #ff00ff
+    );
+
+  box-shadow:
+    0 0 15px rgba(0,255,255,0.3);
+
+  transition: width 0.4s ease;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.vote-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 12px 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00ffff,
+      #00d9ff
+    );
+
+  color: black;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.18);
+}
+
+.vote-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.35),
+    0 0 50px rgba(0,255,255,0.12);
+}
+
+.vote-button:disabled {
+  cursor: default;
+}
+
+.voted-btn {
+  background:
+    linear-gradient(
+      90deg,
+      #ff00ff,
+      #ff4dff
+    );
+
+  color: white;
+
+  box-shadow:
+    0 0 25px rgba(255,0,255,0.22);
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.poll-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  padding: 80px 20px;
+
+  color: white;
+}
+
+.loader-ring {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  border:
+    3px solid rgba(255,255,255,0.08);
+
+  border-top:
+    3px solid #00ffff;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .poll-container {
+    padding: 22px;
+  }
+
+  .poll-option-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vote-button {
+    width: 100%;
+  }
+}

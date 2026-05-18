@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+}
+
+/* Existing styles... */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Poll list styles */
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.poll-list {
+  list-style: none;
+  padding: 0;
+}
+
+.poll-item {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease;
+}
+
+.poll-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.poll-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.poll-button:hover {
+  color: #2196f3;
+}
+
+/* ✅ Neon/space themed nav bar */
+.top-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  z-index: 50;
+  opacity: 0; /* start hidden */
+  transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.top-nav.hidden {
+  top: -80px; /* slides up out of view */
+  opacity: 0;
+}
+
+.nav-button {
+  background: transparent;
+  color: #0ff; /* neon cyan */
+  padding: 12px 24px;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #0ff, 0 0 16px #0ff;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+  transform: scale(1.1);
+}

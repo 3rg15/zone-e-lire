@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",          // fine for modern React
+    "module": "esnext",          // works with bundlers like CRA/Vite
+    "jsx": "react-jsx",          // correct for React 17+ with new JSX transform
+    "moduleResolution": "node",  // standard for npm packages
+    "allowJs": true,             // lets you mix JS and TS files
+    "checkJs": false,            // disables type checking in JS files
+    "skipLibCheck": true,        // skips type checking in node_modules
+    "resolveJsonModule": true,   // allows importing JSON files
+    "isolatedModules": true,     // ensures each file can be transpiled alone
+    "noEmit": true               // prevents output files (since CRA/Vite handles bundling)
+  },
+  "include": ["src"]
+}

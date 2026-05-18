@@ -1,0 +1,65 @@
+### Variables
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWY4YjJjYzUxZTU4NWZiZGIxMWM4MyIsInVzZXJuYW1lIjoiZXJnaXMiLCJpYXQiOjE3Nzc0MTE5NjMsImV4cCI6MTc3NzQxNTU2M30.zft7AC2wP-3K7gGjIZTN8J9LqIFsNg6rnhxwN1l6Mbg
+@pollId = 69f127cbe0fd27f14c440fd7
+
+### Test backend root
+GET http://localhost:5000/
+
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "ergis",
+  "email": "ergis@example.com",
+  "password": "123456"
+}
+
+### Login with the registered user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ergis@example.com",
+  "password": "123456"
+}
+
+### Access protected route with token
+GET http://localhost:5000/api/secret
+Authorization: Bearer {{token}}
+
+### Create a new poll
+POST http://localhost:5000/api/polls
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "question": "Who is your favorite guest this week?",
+  "options": [
+    { "text": "Guest A" },
+    { "text": "Guest B" },
+    { "text": "Guest C" }
+  ]
+}
+
+### Vote on a poll
+POST http://localhost:5000/api/polls/{{pollId}}/vote
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "optionIndex": 1
+}
+
+### Get all polls
+GET http://localhost:5000/api/polls
+
+### Get poll results
+GET http://localhost:5000/api/polls/{{pollId}}/results
+
+### Get poll by ID
+GET http://localhost:5000/api/polls/{{pollId}}
+Authorization: Bearer {{token}}
+
+
+
